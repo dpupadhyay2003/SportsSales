@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+</head>
+
+<body style="background-image: url(./IMG/bg2.jpg);">
+
+    <div class="login-box">
+        <div id="error-div" class="warning-container text-center">
+            <strong>ERROR !</strong> InValid Credentials.
+        </div>
+        <h1> Login </h1>
+        <div class="textbox">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <input type="text" id="email" placeholder="Enter E-mail" />
+        </div>
+        <div class="textbox">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" id="password" placeholder=" Enter Password " />
+            <i class="fa fa-eye-slash" id="togglePassword"></i>
+        </div>
+
+
+        <a id="submit" data-role="button" class="btn">Login</a>
+
+        <a id="registration" data-role="button" class="btn">
+            <i class="fa fa-user" aria-hidden="true"></i> &nbsp; New User
+        </a>
+
+    </div>
+
+</body>
+
+<script src="./JS/login.js"></script>
+
+</html>

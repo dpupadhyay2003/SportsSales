@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <!-- Custom JS -->
+    <script src="./JS/registration.js"></script>
+</head>
+
+<body style="background-image: url(./IMG/bg2.jpg);">
+    <div class="login-box">
+        <div id="error-div" class="warning-container text-center">
+            <strong>ERROR !</strong> InValid Data. <br>Try Again!
+        </div>
+        <h1> Registration </h1>
+        <div class="textbox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" id="name" placeholder="Enter Name " required/>
+        </div>
+        <div class="textbox">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <input type="text" id="email" placeholder="Enter E-mail  " required/>
+        </div>
+        <div class="textbox">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" id="password" placeholder="Enter Password " />
+            <i class="fa fa-eye-slash" id="togglePassword"></i>
+            <i class="fa fa-info" id="password-info" title="Must Contains more than 8 characters."></i>
+        </div>
+        <div class="textbox">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" id="re_password" placeholder="Re-type Password " />
+        </div>
+
+        <div class="textbox">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <input type="text" id="phone" placeholder="Enter Phone Number" maxlength="10" />
+        </div>
+        <div class="textbox">
+            <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+            <input type="text" id="age" placeholder="Age" maxlength="2" />
+        </div>
+        <a id="submit" data-role="button" class="btn">Registration</a>
+    </div>
+
+</body>
+
+
+</html>

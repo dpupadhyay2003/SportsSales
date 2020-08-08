@@ -77,4 +77,7 @@ app.post('/register', (req, res) => {
 });
 
 
+const router = require('./adminNodeFile.js');
+app.use(router);
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

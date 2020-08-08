@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Item</title>
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+</head>
+
+<body style="background-image: url(IMG/bg2.jpg);">
+
+    <div class="admin">
+        <h2>
+            <u>
+                Add Item 
+            </u>
+        </h2>
+        <table class="atable">
+            <tr>
+                <td class="width-40">Item Name:</td>
+                <td class="width-60">
+                    <div class="atextbox"><input type="text" id="name" placeholder="Enter Name of Item" /> </div>
+                </td>
+            </tr>
+            <tr>
+                <td> Item type:</td>
+                <td>
+                    <div class="atextbox"><input type="text" id="itype" placeholder="Enter type of Item" /></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Item Price:</td>
+                <td>
+                    <div class="atextbox"><input type="text" id="price" placeholder="Enter price of Item" /> </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Item Image:</td>
+                <td>
+                    <div class="atextbox"><input type="file" id="Image" name="files" /> </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Item quantity:</td>
+                <td>
+                    <div class="atextbox"><input type="text" id="quantity" placeholder="Enter number of quantity" /> </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Item description:</td>
+                <td>
+                    <div class="atextbox">
+                        <!-- <input type="textarea" col="20" row="20" id="idesc" placeholder="Enter description here" /> -->
+                        <textarea cols="20" rows="4" id="idesc" placeholder="Enter description here">
+
+                        </textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><a href="#" id="submit-btn" data-role="button" class="a_btn">Submit</a>
+                    <a href="#" id="cancel-btn" data-role="button" class="a_btn">Cancel</a></td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+<script src="./JS/addItem.js"></script>
+
+</html>

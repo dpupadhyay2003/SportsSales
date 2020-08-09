@@ -30,9 +30,6 @@ var con = mysql.createConnection({
 });
 
 app.post('/login', (req, res) => {
-    var email = req.body.email;
-    var pwd = req.body.password;
-
     con.query("SELECT * FROM `sportssales`.`register`", function(err, result) {
         if (err) {
             console.log("Error query running query");
@@ -75,7 +72,6 @@ app.post('/register', (req, res) => {
         res.send(req);
     }
 });
-
 
 const router = require('./adminNodeFile.js');
 app.use(router);

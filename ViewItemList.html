@@ -1,5 +1,5 @@
 <head>
-    <title>Login Page</title>
+    <title>View Item</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="CSS/ViewItemList.css">
@@ -7,68 +7,18 @@
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-
+    <script src="./JS/viewItemList.js"></script>
 </head>
 
 <body style="background-image: url(IMG/bg2.jpg);">
+
+    <a id="addItem" data-role="button" class="ui-btn ui-input-btn ui-btn-b ui-corner-all">
+        ADD ITEM
+    </a>
+
     <div class="itview">
-        <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive text-center">
+        <table id="viewList" data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive text-center">
 
-            <thead>
-
-                <tr>
-
-                    <th data-priority="1">Item Id</th>
-
-                    <th data-priority="persist">Item Name</th>
-
-                    <th data-priority="2">Item type</th>
-
-                    <th data-priority="3">Item Price</th>
-
-                    <th data-priority="4">Item Quantity</th>
-                    <th data-priority="5">Item Image</th>
-
-                    <th data-priority="6" colspan="2">Action On Item</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                <tr>
-
-                    <th>1</th>
-
-                    <td>tennis ball</td>
-
-                    <td>Cricket ball</td>
-
-                    <td>$20</td>
-
-                    <td>100</td>
-                    <td><img src="IMG/tenis.jpg" width="100px" height="100px"></td>
-
-                    <td> <a href="#" title="Edit" data-rel="external"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></td>
-                    <td><a href="#" title="Delete" data-rel="external"><i class="fa fa-trash fa-2x"  aria-hidden="true"></i></a></td>
-                </tr>
-
-                <tr>
-
-                    <th>2</th>
-
-                    <td>tennis ball</td>
-
-                    <td>Cricket ball</td>
-
-                    <td>$20</td>
-
-                    <td>100</td>
-                    <td><img src="IMG/tenis.jpg" width="100px" height="100px"></td>
-
-                    <td> <a href="#" data-rel="external"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></td>
-                    <td> <a href="#" data-rel="external"><i class="fa fa-trash fa-2x"  aria-hidden="true"></i></a></td>
-                </tr>
-            </tbody>
         </table>
     </div>
 

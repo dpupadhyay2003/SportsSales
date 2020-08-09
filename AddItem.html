@@ -10,21 +10,22 @@
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-
+    <script src="./JS/addItem.js"></script>
 </head>
 
 <body style="background-image: url(IMG/bg2.jpg);">
 
     <div class="admin">
         <h2>
-            <u>
-                Add Item 
+            <u id="label">
+                 
             </u>
         </h2>
         <table class="atable">
             <tr>
                 <td class="width-40">Item Name:</td>
                 <td class="width-60">
+                    <div class="atextbox"><input type="hidden" id="itemid" /> </div>
                     <div class="atextbox"><input type="text" id="name" placeholder="Enter Name of Item" /> </div>
                 </td>
             </tr>
@@ -43,7 +44,7 @@
             <tr>
                 <td>Item Image:</td>
                 <td>
-                    <div class="atextbox"><input type="file" id="Image" name="files" /> </div>
+                    <div class="atextbox"><input type="file" id="files" name="files" /> </div>
                 </td>
             </tr>
             <tr>
@@ -64,14 +65,14 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><a href="#" id="submit-btn" data-role="button" class="a_btn">Submit</a>
-                    <a href="#" id="cancel-btn" data-role="button" class="a_btn">Cancel</a></td>
+                <td colspan="2">
+                    <a href="#" type="submit" onclick="SUBMITAPICALL();" id="submit-btn" data-role="button" class="a_btn">Submit</a>
+                    <a href="#" id="cancel-btn" data-role="button" class="a_btn">Cancel</a>
+                </td>
             </tr>
-
         </table>
     </div>
 
 </body>
-<script src="./JS/addItem.js"></script>
 
 </html>

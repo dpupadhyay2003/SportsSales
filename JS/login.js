@@ -40,7 +40,6 @@ $(document).ready(function() {
 
     $('#togglePassword').unbind("click").click(function(e) {
         e.preventDefault();
-        console.log($(this).hasClass('fa fa-eye-slash'));
         if ($(this).hasClass('fa fa-eye-slash')) {
             $(this).removeClass('fa fa-eye-slash');
             $(this).addClass('fa fa-eye');

@@ -2,10 +2,13 @@ var userID = 0;
 $(document).ready(function() {
     $('#error-div').hide();
     userID = $.urlParam('id');
-    if (userID != 0) {
+    if (userID) {
         getUserById(userID);
         $('#reTypePassword').css('display', 'none');
         $("#submit").text('Update Profile');
+    } else {
+        $('#reTypePassword').css('display', 'initial');
+        $("#submit").text('Register Profile');
     }
 
 
@@ -143,11 +146,14 @@ $(document).ready(function() {
         }
     });
 
-});
 
+
+});
 $.urlParam = function(name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return 0 || results[1];
+    if (results) {
+        return 0 || results[1] || null;
+    }
 }
 
 function getUserById(id) {

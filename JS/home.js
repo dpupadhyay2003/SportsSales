@@ -1,31 +1,29 @@
 var userID;
-// $(document).ready(function() {
-//     userID = $.urlParam('id');
-//     getUserById(userID);
-//     LoadData();
-//     $("#profileRegister").click(function() {
-//         // e.preventDefault();
-//         alert("Rsjuu");
-//         console.log("CLICKED!!");
-//         window.location.href = "registration.html";
-//     });
-
-
-// });
 
 $(document).ready(function() {
     userID = $.urlParam('id');
     getUserById(userID);
-    // LoadData();
-});
+    $('#profile').click(function(e) {
+        e.preventDefault();
+        window.location.href = "registration.html?id=" + userID;
+    });
 
-$(".widget input[type=submit], .widget a, .widget button").button();
-$("button, input, a").click(function(event) {
-    event.preventDefault();
-    console.log("CLICKED!!!");
-    window.location.href = "registration.html";
-});
+    $('#homePage').click(function(e) {
+        e.preventDefault();
+        window.location.href = 'Home.html?id=' + userID;
+    });
+    $('#about_us').click(function(e) {
+        e.preventDefault();
+        window.location.href = 'about_us.html?id=' + userID;
+    });
 
+    $('#contact_us').click(function(e) {
+        e.preventDefault();
+        window.location.href = 'Contact_Us.html?id=' + userID;
+    });
+
+    LoadData();
+});
 
 $.urlParam = function(name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);

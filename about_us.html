@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <title>About Us</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/style1.css">
+    <link rel="stylesheet" href="CSS/home.css">
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+</head>
+
+<body style="background-image: url(IMG/bg2.jpg);">
+    <!-- Header -->
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="a">
+        <a href="#" class="ui-btn ui-button ui-widget ui-corner-all" id="profile" data-role="button">Profile</a>
+        <h1 id="welcomeUser"></h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+            <a href="#" data-role="button">Favourite</a>
+            <a href="#" data-role="button">Logout</a>
+        </div>
+    </div>
+
+    <div data-role="navbar">
+        <ul>
+            <li><a id="homePage">Home</a></li>
+            <li><a href="#">Favourites</a></li>
+            <li><a href="#">View Cart</a></li>
+            <li><a id="about_us">About US</a></li>
+            <li><a id="contact_us">Contact US</a></li>
+        </ul>
+    </div>
+
+    <!-- Code -->
+    <div role="main" class="ui-content" data-theme="b">
+        <div class="itview">
+            <div class="container">
+                <h2>About Us</h2>
+                <div class="row">
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".4s">
+                        <div class="about-img">
+                            <img src="IMG/aus.jpg" class="img-fluid" alt="about">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 about-content wow fadeInLeft" data-wow-duration=".2s" data-wow-delay=".6s">
+                        <p>Xtreme Sports club provides superior, reliable and affordable services to small and large scale businesses. Founded in 2017, Xtreme sports club has quickly grown to become a leading Development agency in Canada.Many small and large
+                            scale companies as well as individual order from our website as well as mobile.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $.urlParam = function(name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return 0 || results[1];
+        }
+        var userID = $.urlParam('id');
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/getUserById",
+            data: {
+                id: userID
+            },
+            async: false,
+            success: function(response) {
+                data = JSON.parse(response);
+                $('#welcomeUser').html('').append('Welcome ' + data[0].name);
+            }
+        });
+
+
+        $('#homePage').click(function(e) {
+            e.preventDefault();
+            window.location.href = 'Home.html?id=' + userID;
+        });
+        $('#about_us').click(function(e) {
+            e.preventDefault();
+            window.location.href = 'about_us.html?id=' + userID;
+        });
+
+        $('#contact_us').click(function(e) {
+            e.preventDefault();
+            window.location.href = 'Contact_Us.html?id=' + userID;
+        });
+    </script>
+</body>
+
+</html>

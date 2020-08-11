@@ -62,6 +62,38 @@ app.get('/login', (req, res) => {
     });
 });
 
+app.post("/UpdateRegister", function(req, res) {
+    console.log("ID: ", req.body.id);
+    console.log("Name: ", req.body.name);
+    console.log("Email: ", req.body.email);
+    console.log("Phone Number: ", req.body.phoneNumber);
+    console.log("Age: ", req.body.age);
+    console.log("Password: ", req.body.password);
+    if (req.body.id && req.body.name && req.body.email && req.body.phoneNumber && req.body.age && req.body.password) {
+        // Update
+        var query = '';
+        query += 'UPDATE `sportssales`.`register` SET';
+        query += ' name = "' + req.body.name + '", email = "' + req.body.email + '",';
+        query += ' password = ' + req.body.password + ', phoneNumber = "' + req.body.phoneNumber + '",';
+        query += ' age = ' + req.body.age + '';
+        query += ' WHERE id=' + req.body.id + ';';
+
+        con.query(query, function(err, result) {
+            if (err) {
+                console.log("Error query running query");
+                console.log(err);
+                res.status(500).send("Error with DB");
+            } else {
+                console.log("Data Updated.");
+                res.status(200);
+            }
+        });
+    } else {
+        console.log("INVALID PARAMETER");
+    }
+    return res.send("Success");
+});
+
 app.post('/register', (req, res) => {
     var name = req.body.name;
     var email = req.body.email;

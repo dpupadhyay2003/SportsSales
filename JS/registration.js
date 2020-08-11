@@ -4,6 +4,8 @@ $(document).ready(function() {
     userID = $.urlParam('id');
     if (userID != 0) {
         getUserById(userID);
+        $('#reTypePassword').css('display', 'none');
+        $("#submit").text('Update Profile');
     }
 
 
@@ -45,32 +47,69 @@ $(document).ready(function() {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
                 // Valid Email.
                 $('#error-div').hide();
-                if (password === re_password && password.length >= 8) { // Password Matched
-                    // Call API
-                    $('#error-div').show();
-                    $.post("http://localhost:3000/register", {
-                            "name": name,
-                            "email": email,
-                            "password": password,
-                            "phoneNumber": phoneNumber,
-                            "age": age
-                        },
-                        function(response, textStatus) {
-                            console.log(response);
-                            $('#error-div').hide();
-                            window.location.href = "login.html";
-                        }
-                    );
+                console.log('ID: ', $('#regid').val());
+                if ($('#regid').val()) {
+                    // Update
+                    if (password.length >= 8) {
+                        // Call API
+                        console.log("Password Correct");
+                        $('#error-div').hide();
+                        $.post("http://localhost:3000/UpdateRegister", {
+                                "id": $('#regid').val(),
+                                "name": name,
+                                "email": email,
+                                "password": password,
+                                "phoneNumber": phoneNumber,
+                                "age": age
+                            },
+                            function(response, textStatus) {
+                                console.log(response);
+                                $('#error-div').hide();
+                                window.location.href = "Home.html?id=" + $('#regid').val();
+                            }
+                        );
+                    } else {
+                        console.log("Password INCorrect");
+                        // Password Doesnot Matched, Error Occured.
+                        $('#error-div').show();
+                    }
                 } else {
-                    // Password Doesnot Matched, Error Occured.
-                    $('#error-div').show();
+                    // Add 
+                    if (password === re_password && password.length >= 8) { // Password Matched
+                        // Call API
+                        $('#error-div').hide();
+                        $.post("http://localhost:3000/register", {
+                                "name": name,
+                                "email": email,
+                                "password": password,
+                                "phoneNumber": phoneNumber,
+                                "age": age
+                            },
+                            function(response, textStatus) {
+                                console.log(response);
+                                $('#error-div').hide();
+                                window.location.href = "login.html";
+                            }
+                        );
+                    } else {
+                        // Password Doesnot Matched, Error Occured.
+                        $('#error-div').show();
+                        console.log("Password ELSE Correct");
+                    }
+
                 }
+
+
+                // Update
+
             } else {
                 // InValid Email, Error Occured.
                 $('#error-div').show();
+                console.log("Email Incorrect");
             }
         } else {
             $('#error-div').show();
+            console.log("INCORRECT");
         }
     });
 
@@ -125,7 +164,7 @@ function getUserById(id) {
             $('#name').val(data[0].name);
             $('#email').val(data[0].email);
             $('#password').val(data[0].password);
-            $('#phone').val(data[0].phone);
+            $('#phone').val(data[0].phoneNumber);
             $('#age').val(data[0].age);
         }
     });

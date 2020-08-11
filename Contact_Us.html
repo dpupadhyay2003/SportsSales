@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <title>Contactc US</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/style1.css">
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+</head>
+
+<body style="background-image: url(IMG/bg2.jpg);">
+    <!-- Header -->
+    <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="a">
+        <a href="#" class="ui-btn ui-button ui-widget ui-corner-all" id="profile" data-role="button">Profile</a>
+        <h1 id="welcomeUser"></h1>
+        <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+            <a href="#" data-role="button">Favourite</a>
+            <a href="#" data-role="button">Logout</a>
+        </div>
+    </div>
+
+    <div data-role="navbar">
+        <ul>
+            <li><a id="homePage">Home</a></li>
+            <li><a href="#">Favourites</a></li>
+            <li><a href="#">View Cart</a></li>
+            <li><a id="about_us">About US</a></li>
+            <li><a id="contact_us">Contact US</a></li>
+        </ul>
+    </div>
+
+    <div role="main" class="ui-content" data-theme="b">
+        <div class="itview">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="row">
+                    <div class="ui-grid-b ui-responsive">
+                        <div class="ui-block-a" id="exampleBlockA">
+
+                            <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".2s">
+                                <div class="team-member">
+                                    <div class="team-img">
+                                        <img style="min-height: 300px; min-width: 300px;max-height: 300px; max-width: 300px" src="IMG/jinal123.jpg" class="img-fluid" alt="team-1">
+                                    </div>
+                                    <div class="team-caption">
+                                        <h4>Jinal Patel</h4>
+                                        <p>CEO & co-founder</p>
+                                        <ul class="social-media">
+                                            <li><a href="https://www.facebook.com/angel3452"><i class="fa fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b" id="exampleBlockB">
+
+                            <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".4s">
+                                <div class="team-member">
+                                    <div class="team-img">
+                                        <img style="min-height: 300px; min-width: 300px;max-height: 300px; max-width: 300px;" src="IMG/Deep.jpg" class="img-fluid" alt="team-2">
+                                    </div>
+                                    <div class="team-caption">
+                                        <h4>Deep Upadhayay</h4>
+                                        <p>co-founder & CTO</p>
+                                        <ul class="social-media">
+                                            <li><a href="https://www.facebook.com/deep.upadhyay.549"><i class="fa fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-block-c" id="exampleBlockC">
+                            <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-duration=".2s" data-wow-delay=".4s">
+                                <div class="team-member">
+                                    <div class="team-img">
+                                        <img style="min-height: 300px; min-width: 300px;max-height: 300px; max-width: 300px;" src="IMG/parth.jpg" class="img-fluid" alt="team-2">
+                                    </div>
+                                    <div class="team-caption">
+                                        <h4>Parth Patel </h4>
+                                        <p>co-founder & CIO</p>
+                                        <ul class="social-media">
+                                            <li><a href="https://www.facebook.com/profile.php?id=100005314504479"><i class="fa fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $.urlParam = function(name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return 0 || results[1];
+        }
+        var userID = $.urlParam('id');
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/getUserById",
+            data: {
+                id: userID
+            },
+            async: false,
+            success: function(response) {
+                data = JSON.parse(response);
+                $('#welcomeUser').html('').append('Welcome ' + data[0].name);
+            }
+        });
+        $('#homePage').click(function(e) {
+            e.preventDefault();
+            window.location.href = 'Home.html?id=' + userID;
+        });
+        $('#about_us').click(function(e) {
+            e.preventDefault();
+            window.location.href = 'about_us.html?id=' + userID;
+        });
+
+        $('#contact_us').click(function(e) {
+            e.preventDefault();
+            window.location.href = 'Contact_Us.html?id=' + userID;
+        });
+    </script>
+</body>
+
+
+</html>

@@ -60,7 +60,6 @@ function getUrlVars() {
 }
 
 function GetDataById(id) {
-    console.log("ID::::", id);
     $.ajax({
         type: "GET",
         url: "http://localhost:3000/admin/getItemById",

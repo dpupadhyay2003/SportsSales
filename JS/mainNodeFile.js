@@ -29,7 +29,24 @@ var con = mysql.createConnection({
     database: 'sportssales'
 });
 
-app.post('/login', (req, res) => {
+app.get('/getUserById', (req, res) => {
+    con.query("SELECT * FROM `sportssales`.`register` where id=" + req.query.id, function(err, result) {
+        if (err) {
+            console.log("Error query running query");
+            console.log(err);
+            res.status(500).send("Error with DB");
+        } else {
+            console.log("Select query Run - No Issue");
+            var resultRes = JSON.stringify(result);
+
+            console.log("Select query Resul - >" + resultRes);
+            res.status(200).send(resultRes);
+        }
+    });
+});
+
+
+app.get('/login', (req, res) => {
     con.query("SELECT * FROM `sportssales`.`register`", function(err, result) {
         if (err) {
             console.log("Error query running query");

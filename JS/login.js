@@ -1,9 +1,10 @@
 $(document).ready(function() {
     $("#error-div").hide();
     $('#submit').click(function() {
+        var id;
         var email = $("#email").val();
         var password = $("#password").val();
-        $.post("http://localhost:3000/login", {
+        $.get("http://localhost:3000/login", {
                 "email": email,
                 "password": password
             },
@@ -15,6 +16,7 @@ $(document).ready(function() {
                         const data = res[key];
                         if (email === data.email) {
                             flag = true;
+                            id = data.id;
                             break;
                         } else {
                             flag = false;
@@ -24,7 +26,7 @@ $(document).ready(function() {
                 if (flag) {
                     console.log("Password Matched . . .");
                     $("#error-div").hide();
-                    window.location.href = "Home.html";
+                    window.location.href = "Home.html?id=" + id + "";
                 } else {
                     $("#error-div").show();
                 }

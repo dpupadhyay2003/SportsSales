@@ -1,5 +1,11 @@
+var userID = 0;
 $(document).ready(function() {
     $('#error-div').hide();
+    userID = $.urlParam('id');
+    if (userID != 0) {
+        getUserById(userID);
+    }
+
 
     function checkNullOrNot(id, num) {
         // Check String or text 
@@ -99,3 +105,28 @@ $(document).ready(function() {
     });
 
 });
+
+$.urlParam = function(name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return 0 || results[1];
+}
+
+function getUserById(id) {
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:3000/getUserById",
+        data: {
+            id: id
+        },
+        async: false,
+        success: function(response) {
+            data = JSON.parse(response);
+            $('#regid').val(data[0].id);
+            $('#name').val(data[0].name);
+            $('#email').val(data[0].email);
+            $('#password').val(data[0].password);
+            $('#phone').val(data[0].phone);
+            $('#age').val(data[0].age);
+        }
+    });
+}

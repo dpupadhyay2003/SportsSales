@@ -12,118 +12,35 @@
 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
-
+    <script src="./JS/home.js"></script>
 
 </head>
 
 <body>
 
-    <div data-role="page" data-theme="b" id="demo-page" class="my-page" data-url="demo-page">
-
-        <div data-role="header">
-
-            <h1>Welcome</h1>
-            <a href="./" data-shadow="false" data-iconshadow="false" data-icon="carat-l" data-iconpos="notext" data-rel="back" data-ajax="false">Back</a>
+    <div data-role="page" data-theme="b">
+        <!-- Header -->
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="a">
+            <a href="#" class="ui-btn ui-button ui-widget ui-corner-all" id="profile" data-role="button">Profile</a>
+            <h1 id="welcomeUser"></h1>
+            <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+                <a href="#" data-role="button">Favourite</a>
+                <a href="#" data-role="button">Logout</a>
+            </div>
         </div>
-        <!-- /header -->
 
-        <div role="main" class="ui-content">
-
-            <ul data-role="listview" data-inset="true">
-
-                <li>
-                    <a href="#">
-                        <img src="./IMG/tenis.jpg" width=100px height=100px class="ui-li-thumb">
-                        <h2>iOS 6.1</h2>
-
-                        <p>Apple released iOS 6.1</p>
-
-                        <p class="ui-li-aside">iOS</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="./IMG/baseball.jpg" width=100px height=100px class="ui-li-thumb">
-                        <h2>BlackBerry 10</h2>
-
-                        <p>BlackBerry launched the Z10 and Q10 with the new BB10 OS</p>
-
-                        <p class="ui-li-aside">BlackBerry</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="./IMG/baseball.jpg" width=100px height=100px class="ui-li-thumb">
-                        <h2>WP 7.8</h2>
-
-                        <p>Nokia rolls out WP 7.8 to Lumia 800</p>
-
-                        <p class="ui-li-aside">Windows Phone</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="./IMG/football.jpg" width=100px height=100px class="ui-li-thumb">
-                        <h2>Galaxy</h2>
-
-                        <p>New Samsung Galaxy Express</p>
-
-                        <p class="ui-li-aside">Samsung</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="./IMG/baseball.jpg" width=100px height=100px class="ui-li-thumb">
-                        <h2>Nexus 7</h2>
-
-                        <p>Rumours about new full HD Nexus 7</p>
-
-                        <p class="ui-li-aside">Android</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="./IMG/baseball.jpg" width=100px height=100px class="ui-li-thumb">
-                        <h2>Firefox OS</h2>
-
-                        <p>ZTE to launch Firefox OS smartphone at MWC</p>
-
-                        <p class="ui-li-aside">Firefox</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <img src="./IMG/tenis.jpg" width=100px height=100px class="ui-li-thumb">
-                        <h2>Tizen</h2>
-
-                        <p>First Samsung phones with Tizen can be expected in 2013</p>
-
-                        <p class="ui-li-aside">Tizen</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-
-                        <h2>Symbian</h2>
-
-                        <p>Nokia confirms the end of Symbian</p>
-
-                        <p class="ui-li-aside">Symbian</p>
-                    </a>
-                </li>
-            </ul>
+        <!-- Code -->
+        <div role="main" class="ui-content" data-theme="b" id="viewList">
         </div>
-        <!-- /content -->
+
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <h1></h1>
+        </div>
+
     </div>
 
 </body>
-<script src="./JS/home.js"></script>
 
 </html>

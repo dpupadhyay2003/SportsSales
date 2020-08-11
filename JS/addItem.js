@@ -13,6 +13,11 @@ $(document).ready(function() {
         $('#label').append('Add Item');
         $("#submit-btn").text('Add');
     }
+
+    $('#cancel-btn').click(function(e) {
+        e.preventDefault();
+        window.location.href = "ViewItemList.html";
+    });
 });
 
 function SUBMITAPICALL(e) {

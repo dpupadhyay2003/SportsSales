@@ -11,9 +11,15 @@ $(document).ready(function() {
             function(response, textStatus) {
                 var res = JSON.parse(response);
                 var flag = false;
+                var adminFlag = false;
                 for (const key in res) {
                     if (res.hasOwnProperty(key)) {
                         const data = res[key];
+                        if (email === "admin" && password === "admin") {
+                            adminFlag = true;
+                            flag = true;
+                            break;
+                        }
                         if (email === data.email) {
                             flag = true;
                             id = data.id;
@@ -23,7 +29,11 @@ $(document).ready(function() {
                         }
                     }
                 }
-                if (flag) {
+                if (flag == true && adminFlag == true) {
+                    console.log("Admin");
+                    $("#error-div").hide();
+                    window.location.href = "ViewItemList.html";
+                } else if (flag && !adminFlag) {
                     console.log("Password Matched . . .");
                     $("#error-div").hide();
                     window.location.href = "Home.html?id=" + id + "";

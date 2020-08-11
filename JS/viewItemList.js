@@ -6,6 +6,11 @@ $(document).ready(function() {
         e.preventDefault();
         window.location.href = "AddItem.html";
     });
+
+    $("#logout").click(function(e) {
+        e.preventDefault();
+        window.location.href = "login.html";
+    });
 });
 
 function LoadData() {

@@ -3,6 +3,7 @@ var userID;
 $(document).ready(function() {
     userID = $.urlParam('id');
     getUserById(userID);
+
     $('#profile').click(function(e) {
         e.preventDefault();
         window.location.href = "registration.html?id=" + userID;
@@ -21,13 +22,19 @@ $(document).ready(function() {
         e.preventDefault();
         window.location.href = 'Contact_Us.html?id=' + userID;
     });
+    $('#logout').click(function(e) {
+        e.preventDefault();
+        window.location.href = 'login.html';
+    });
 
     LoadData();
 });
 
 $.urlParam = function(name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return 0 || results[1];
+    if (results) {
+        return 0 || results[1] || null;
+    }
 }
 
 function getUserById(id) {
@@ -44,6 +51,7 @@ function getUserById(id) {
         }
     });
 }
+
 
 
 function LoadData() {

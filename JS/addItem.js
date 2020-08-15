@@ -48,10 +48,8 @@ function SUBMITAPICALL(e) {
         processData: false,
         contentType: false,
         success: function(response) {
-            console.log(response);
-            if (response === "Success") {
-                window.location.href = "ViewItemList.html";
-            }
+            console.log("RESPONSE:::: ", response);
+            window.location.href = "ViewItemList.html";
         }
     });
 }

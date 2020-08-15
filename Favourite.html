@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Favourites</title>
+    <link rel="stylesheet" href="./CSS/home.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+    <script src="./JS/Favourite.js"></script>
+</head>
+
+<body>
+
+    <div data-role="page" data-theme="b">
+        <!-- Header -->
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="a">
+            <a href="#" class="ui-btn ui-button ui-widget ui-corner-all" id="profile" data-role="button">Profile</a>
+            <h1 id="welcomeUser"></h1>
+            <a href="#" id="logout" data-role="button">Logout</a>
+        </div>
+        <div id="navBar" data-role="navbar">
+            <ul>
+
+                <li><a id="homePage">Home</a></li>
+                <li><a href="#" class="ui-btn-active">Favourites</a></li>
+                <li><a id="about_us">About US</a></li>
+                <li><a id="contact_us">Contact US</a></li>
+            </ul>
+        </div>
+
+        <!-- Code -->
+        <div class=" margin-left-2 ui-grid-b ui-responsive" id="FavouriteList" data-inset=true>
+        </div>
+
+
+        <!-- Footer -->
+        <div data-role="footer" data-tap-toggle="false" data-position="fixed">
+            <h1><i class="fa fa-copyright">&nbsp;</i>Deep Upadhyay [C0763489] : Jinal Patel [C0762899] : Parth Patel [C0765117]</h1>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

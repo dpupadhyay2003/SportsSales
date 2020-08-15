@@ -7,6 +7,11 @@ $(document).ready(function() {
         window.location.href = "AddItem.html";
     });
 
+    $("#ViewUser").click(function(e) {
+        e.preventDefault();
+        window.location.href = "ViewUsers.html";
+    });
+
     $("#logout").click(function(e) {
         e.preventDefault();
         window.location.href = "login.html";

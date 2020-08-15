@@ -2,8 +2,9 @@ const path = require('path')
 const express = require('express')
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-
 const app = express();
+
+
 
 // for parsing application/json
 app.use(bodyParser.json());
@@ -20,6 +21,9 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+const router = require('./adminNodeFile.js');
+app.use(router);
 
 var con = mysql.createConnection({
     host: '127.0.0.1',
@@ -122,7 +126,87 @@ app.post('/register', (req, res) => {
     }
 });
 
-const router = require('./adminNodeFile.js');
-app.use(router);
+app.post('/AddFavourite', (req, res) => {
+    var userId = req.body.userID;
+    var item_id = req.body.itemId;
+    console.log(userId);
+    console.log(item_id);
+    if (userId && item_id) {
+
+        var checkItemQuery = '';
+        checkItemQuery += 'select * from `sportssales`.`fav` where userId=' + userId + ' and item_id=' + item_id;
+        con.query(checkItemQuery, function(err, result) {
+            if (err) {
+                console.log("Error query running query");
+                console.log(err);
+                res.status(500).send("Error with DB");
+            } else {
+                if (result.length != 0) {
+                    console.log("Record Found");
+                    res.status(200).send("Record Already Found");
+                } else {
+                    // Insert 
+                    var query = '';
+                    query += 'INSERT into `sportssales`.`fav`(userId, item_id) '
+                    query += 'values (' + userId + ', ' + item_id + ');';
+                    con.query(query, function(err, result) {
+                        if (err) {
+                            console.log("Error query running query");
+                            console.log(err);
+                            res.status(500).send("Error with DB");
+                        } else {
+                            console.log("Data Inserted.");
+                            res.status(200).send("Record Added.");
+                        }
+                    });
+                }
+            }
+        });
+    } else {
+        console.log("Error");
+        res.send("ERROR");
+    }
+});
+
+app.get('/GetFavourite', (req, res) => {
+    con.query("SELECT * FROM `sportssales`.`fav` where userId=" + req.query.id, function(err, result) {
+        if (err) {
+            console.log("Error query running query");
+            console.log(err);
+            res.status(500).send("Error with DB");
+        } else {
+            console.log("Select query Run - No Issue");
+            var resultRes = JSON.stringify(result);
+
+            console.log("Select query Resul - >" + resultRes);
+            res.status(200).send(resultRes);
+        }
+    });
+});
+
+app.post('/RemoveFavourite', (req, res) => {
+    var userId = req.body.userID;
+    var item_id = req.body.itemId;
+    console.log(userId);
+    console.log(item_id);
+    if (userId && item_id) {
+        // Insert 
+        var query = '';
+        query += 'Delete from `sportssales`.`fav` where userId=' + userId + ' and item_id=' + item_id;
+        con.query(query, function(err, result) {
+            if (err) {
+                console.log("Error query running query");
+                console.log(err);
+                res.status(500).send("Error with DB");
+            } else {
+                console.log("Data Deleted.");
+                res.status(200).send("Record Deleted.");
+            }
+        });
+    } else {
+        console.log("Error");
+        res.send("ERROR");
+    }
+});
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

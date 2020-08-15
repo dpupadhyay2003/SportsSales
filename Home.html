@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Home Page</title>
+    <title>Home</title>
     <link rel="stylesheet" href="./CSS/home.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,30 +23,25 @@
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="a">
             <a href="#" class="ui-btn ui-button ui-widget ui-corner-all" id="profile" data-role="button">Profile</a>
             <h1 id="welcomeUser"></h1>
-            <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
-                <a href="#" data-role="button">Favourite</a>
-                <a href="#" id="logout" data-role="button">Logout</a>
-            </div>
+            <a href="#" id="logout" data-role="button">Logout</a>
         </div>
         <div id="navBar" data-role="navbar">
             <ul>
 
                 <li><a id="homePage" class="ui-btn-active">Home</a></li>
-                <li><a href="#">Favourites</a></li>
-                <li><a href="#">View Cart</a></li>
+                <li><a id="Favourite">Favourites</a></li>
                 <li><a id="about_us">About US</a></li>
                 <li><a id="contact_us">Contact US</a></li>
             </ul>
         </div>
 
         <!-- Code -->
-        <div role="main" class="ui-content" data-theme="b" id="viewList">
+        <div data-filter="true" class=" margin-left-2 ui-grid-b ui-responsive" id="viewList" data-inset=true>
         </div>
 
-
         <!-- Footer -->
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-            <h1></h1>
+        <div data-role="footer" data-tap-toggle="false">
+            <h1><i class="fa fa-copyright">&nbsp;</i>Deep Upadhyay [C0763489] : Jinal Patel [C0762899] : Parth Patel [C0765117]</h1>
         </div>
 
     </div>

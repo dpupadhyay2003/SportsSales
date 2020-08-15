@@ -135,4 +135,22 @@ router.get("/admin/deleteById", function(req, res) {
     });
 });
 
+
+router.get("/admin/getUsers", function(req, res) {
+    con.query("SELECT * FROM `sportssales`.`register`", function(err, result) {
+        if (err) {
+            console.log("Error query running query");
+            console.log(err);
+            res.status(500).send("Error with DB");
+        } else {
+            console.log("Select query Run - No Issue");
+            var resultRes = JSON.stringify(result);
+
+            console.log("Select query Resul - >" + resultRes);
+            res.status(200).send(resultRes);
+        }
+    });
+});
+
+
 module.exports = router

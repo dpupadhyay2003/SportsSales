@@ -98,17 +98,15 @@ $(document).ready(function() {
                         // Password Doesnot Matched, Error Occured.
                         $('#error-div').show();
                         console.log("Password ELSE Correct");
+                        alert("Password Must be atleast 8 characters.");
                     }
 
                 }
-
-
-                // Update
-
             } else {
                 // InValid Email, Error Occured.
                 $('#error-div').show();
                 console.log("Email Incorrect");
+                alert("InCorrect Email...");
             }
         } else {
             $('#error-div').show();

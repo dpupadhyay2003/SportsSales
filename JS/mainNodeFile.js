@@ -104,7 +104,7 @@ app.post('/register', (req, res) => {
     var pwd = req.body.password;
     var phone = req.body.phoneNumber;
     var age = req.body.age;
-    console.log(req.body);
+
     if (name && email && pwd && phone & age) {
         // Insert 
         var query = '';
@@ -121,8 +121,7 @@ app.post('/register', (req, res) => {
             }
         });
     } else {
-        console.log(req.body);
-        res.send(req);
+        res.status(503).send("InValid Data.");
     }
 });
 

@@ -20,7 +20,7 @@ $(document).ready(function() {
                             flag = true;
                             break;
                         }
-                        if (email === data.email) {
+                        if (email === data.email && password == data.password) {
                             flag = true;
                             id = data.id;
                             break;
